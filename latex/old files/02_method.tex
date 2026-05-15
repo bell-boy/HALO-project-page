@@ -1,0 +1,128 @@
+\section{Methodology}
+\paragraph{Overview.}
+We meta-train an agent that learns \emph{in-context} using a \emph{generative neural memory}. Slow (meta-learned) base weights encode \emph{how to learn}, while fast weights updated online encode \emph{what has been learned} about the current task so far.
+\\
+Concretely, let tasks be sampled as \( \mathcal{T}\sim p(\mathcal{T}) \), each an episodic MDP
+\( \mathcal{T}=(\mathcal{S},\mathcal{A},P_{\mathcal{T}},r_{\mathcal{T}},\gamma) \).
+The model has two sets of base weights: policy weights \( \boldsymbol{\theta} \) and neural-memory weights \( \boldsymbol{\psi} \) (per Transformer block).
+A set of fast weights \( \boldsymbol{\psi}'_t \) is initialized to zero at the start of each task and is updated online each timestep by a differentiable write rule.
+
+\vspace{0.75ex}
+\paragraph{Reading from generative neural memory.}
+At each step, the policy issues per-block queries; each block consults its memory to obtain informative variants of the stored memory to guide decision-making.
+\\
+Concretely, given history \( (s_{\le t}, a_{<t}, r_{<t}) \), the Transformer produces per-block features \( h_t^l \) and a query \( q_t^l = W_q^l h_t^l \).
+Each block has a generative memory that returns a latent variant \( V_t^l \), which is used as the values in a cross-attention
+\( z_t^l = \mathrm{Attn}(q_t^l,K_t^l,V_t^l) \).
+Blocks can specialize across depth; we avoid indexing individual heads for brevity (calculations are summed over heads in practice).
+
+% \vspace{0.75ex}
+% \paragraph{Generative neural memory.}
+The memory provides stochastic, query-conditioned variants \(V_t^l\).
+Each block defines Gaussian posterior and prior over \( V_t^l \), both conditioned on \( h_t^l \) and the current fast weights \( \boldsymbol{\psi}'_t \):
+\begin{align}
+(\mu_{q,t}^l,\log\sigma_{q,t}^l) &= g_q^l\!\big(h_t^l;\,\boldsymbol{\psi},\boldsymbol{\psi}'_t\big), \qquad
+q_{\boldsymbol{\psi},\boldsymbol{\psi}'_t}(V_t^l\mid h_t^l) = \mathcal{N}\!\big(\mu_{q,t}^l,\operatorname{diag}(\sigma_{q,t}^{l\,2})\big), \\
+(\mu_{p,t}^l,\log\sigma_{p,t}^l) &= g_p^l\!\big(h_t^l;\,\boldsymbol{\psi},\boldsymbol{\psi}'_t\big), \qquad
+p_{\boldsymbol{\psi},\boldsymbol{\psi}'_t}(V_t^l\mid h_t^l) = \mathcal{N}\!\big(\mu_{p,t}^l,\operatorname{diag}(\sigma_{p,t}^{l\,2})\big).
+\end{align}
+Sampling uses the reparameterization trick:
+\begin{equation}
+V_t^l \;=\; \mu_{q,t}^l + \sigma_{q,t}^l \odot \epsilon_t, \qquad \epsilon_t \sim \mathcal{N}(0,I).
+\end{equation}
+The block output is produced via cross-attention:
+\begin{equation}
+z_t^l \;=\; \mathrm{Attn}\!\big(q_t^l, K_t^l, V_t^l\big),
+\end{equation}
+and propagates to the next layers/time. Both prior and posterior adapt online using fast weights, enabling counterfactual reasoning and rapid adaptation.
+
+\vspace{0.75ex}
+\paragraph{Writing to generative neural memory.}
+A tiny gradient step after each interaction stores task-specific information directly in the memory's fast weights, allowing it to generate from the stored memory in future time steps.
+\\
+Concretely, fast weights are updated by a local, differentiable write rule that encourages agreement between posterior and prior statistics (this is similar to `surprise' in Titans~\cite{behrouz2024titans}):
+\begin{equation}
+\boldsymbol{\psi}'_{t+1}
+\;=\;
+\boldsymbol{\psi}'_t
+\;-\;
+\alpha\,\nabla_{\boldsymbol{\psi}'_t}
+\Big\| \mu_{q,t} - \mu_{p,t} \Big\|_2^2,
+\qquad
+\boldsymbol{\psi}'_0 = 0.
+\end{equation}
+This can be implemented as adapter deltas attached to \( g_q^l \) (and \( g_p^l \)).
+
+\vspace{0.75ex}
+\paragraph{Policy and value computation.}
+The policy acts using memory-augmented representations; a value head supports credit assignment.
+\\
+Concretely, aggregating block outputs, the policy and value heads are
+\begin{equation}
+a_t \sim \pi_{\boldsymbol{\theta}}\!\big(a_t \mid s_t,\{z_t^l\}\big),
+\qquad
+V_{\boldsymbol{\theta}}(h_t) \;\approx\; \mathbb{E}\!\left[\sum_{\tau\ge t}\gamma^{\tau-t} r_\tau\right].
+\end{equation}
+
+\vspace{0.75ex}
+\paragraph{Learning objectives.}
+We combine a standard actor-critic objective (with GAE) and a KL term that regularizes the memory's posterior towards its learned prior while still allowing adaptation.
+
+Concretely, define TD residuals and advantages:
+\begin{align}
+\delta_t &= r_t + \gamma V_{\boldsymbol{\theta}}(h_{t+1}) - V_{\boldsymbol{\theta}}(h_t),\\
+A_t &= \sum_{k\ge 0} (\gamma\lambda)^k \,\delta_{t+k}.
+\end{align}
+Per-timestep RL loss (policy/value/entropy):
+\begin{equation}
+\mathcal{L}_{\mathrm{RL}}(t)
+=
+-\log \pi_{\boldsymbol{\theta}}(a_t\mid\cdot)\,A_t
+\;+\;
+\beta_V \big(V_{\boldsymbol{\theta}}(h_t) - G_t\big)^2
+\;-\;
+\beta_H\,\mathcal{H}\!\big(\pi_{\boldsymbol{\theta}}(\cdot\mid\cdot)\big),
+\quad
+G_t=\sum_{k\ge 0}\gamma^k r_{t+k}.
+\end{equation}
+KL regularization (summed over blocks; heads omitted for brevity):
+\begin{equation}
+\mathcal{L}_{\mathrm{KL}}(t)
+=
+\sum_{l}
+D_{\mathrm{KL}}\!\left(
+q_{\boldsymbol{\psi},\boldsymbol{\psi}'_t}(V_t^l\mid h_t^l)
+\;\Big\|\;
+p_{\boldsymbol{\psi},\boldsymbol{\psi}'_t}(V_t^l\mid h_t^l)
+\right).
+\end{equation}
+Total instantaneous loss:
+\begin{equation}
+\mathcal{L}(t)
+=
+\mathcal{L}_{\mathrm{RL}}(t)
++
+\beta\,\mathcal{L}_{\mathrm{KL}}(t).
+\end{equation}
+Note that \(\mathcal{L}_{\mathrm{RL}}(t)\) may be different depending on the RL algorithm.
+
+\vspace{0.75ex}
+\paragraph{Outer-loop meta-optimization.}
+Meta-learning tunes the base weights so that online writes rapidly improve returns within unseen tasks.
+\\
+Concretely, the objective of rollouts is
+\begin{equation}
+\min_{\boldsymbol{\theta},\boldsymbol{\psi}}
+\;
+\mathbb{E}_{\mathcal{T}\sim p(\mathcal{T})}
+\left[
+\sum_{t=1}^{H} \mathcal{L}(t)
+\right],
+\end{equation}
+where during the episode only \( \boldsymbol{\psi}'_t \) changes via the write rule.
+After the rollout, gradients are backpropagated through the unrolled computation (including the fast-weight trajectory) to update \( (\boldsymbol{\theta},\boldsymbol{\psi}) \).
+
+\vspace{0.75ex}
+\paragraph{Summary.}
+Base weights \( (\boldsymbol{\theta},\boldsymbol{\psi}) \) define a reusable, task-agnostic learning procedure; fast weights \( \boldsymbol{\psi}'_t \) provide an online memory that accumulates task-specific evidence.
+The generative memory samples query-conditioned variants and the write rule commits experience back into fast weights, yielding a unified meta-in-context RL framework with per-block generative neural memory.

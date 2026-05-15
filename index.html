@@ -4,499 +4,759 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="HALO: Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control">
+  <meta name="description" content="HALO is a history-aware visuomotor policy that retrieves task-relevant memory for long-horizon robot control under partial observability.">
+  <meta name="keywords" content="HALO, memory retrieval, visuomotor policies, robot learning, imitation learning, long-horizon control, vision-language models">
+  <meta name="author" content="Rutav Shah, Yisu Li, Femi Bello, Yuke Zhu, Roberto Martín-Martín">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="og:site_name" content="RobIn Lab, The University of Texas at Austin">
+  <meta property="og:title" content="HALO: Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control">
+  <meta property="og:description" content="HALO learns attention-based memory retrieval for reliable long-horizon robot control in partially observable household tasks.">
+  <meta property="og:url" content="https://robin-lab.cs.utexas.edu/HALO/">
+  <meta property="og:image" content="https://robin-lab.cs.utexas.edu/HALO/latex/figures/pull_figurev3.png">
+  <meta property="og:image:alt" content="HALO memory retrieval overview">
+  <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Rutav Shah">
   <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="article:tag" content="Robot Learning">
+  <meta property="article:tag" content="Memory Retrieval">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="HALO: Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control">
+  <meta name="twitter:description" content="A history-aware visuomotor policy for long-horizon robot control under partial observability.">
+  <meta name="twitter:image" content="https://robin-lab.cs.utexas.edu/HALO/latex/figures/pull_figurev3.png">
+  <meta name="twitter:image:alt" content="HALO memory retrieval overview">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  <meta name="citation_title" content="Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control">
+  <meta name="citation_author" content="Shah, Rutav">
+  <meta name="citation_author" content="Li, Yisu">
+  <meta name="citation_author" content="Bello, Femi">
+  <meta name="citation_author" content="Zhu, Yuke">
+  <meta name="citation_author" content="Martín-Martín, Roberto">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="Robotics: Science and Systems">
 
-  <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-  <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>HALO: Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-
-  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link rel="apple-touch-icon" href="static/images/favicon.ico">
 
-  <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-  <!-- Fallback for browsers that don't support preload -->
   <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
 
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
 
-  <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control",
+    "description": "HALO learns attention-based memory retrieval for reliable long-horizon robot control under partial observability.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      {"@type": "Person", "name": "Rutav Shah", "affiliation": {"@type": "Organization", "name": "The University of Texas at Austin"}},
+      {"@type": "Person", "name": "Yisu Li", "affiliation": {"@type": "Organization", "name": "The University of Texas at Austin"}},
+      {"@type": "Person", "name": "Femi Bello", "affiliation": {"@type": "Organization", "name": "The University of Texas at Austin"}},
+      {"@type": "Person", "name": "Yuke Zhu", "affiliation": {"@type": "Organization", "name": "The University of Texas at Austin"}},
+      {"@type": "Person", "name": "Roberto Martín-Martín", "affiliation": {"@type": "Organization", "name": "The University of Texas at Austin"}}
     ],
-    "datePublished": "2024-01-01",
+    "datePublished": "2026-01-01",
     "publisher": {
       "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
+      "name": "Robotics: Science and Systems"
     },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
+    "url": "https://robin-lab.cs.utexas.edu/HALO/",
+    "image": "https://robin-lab.cs.utexas.edu/HALO/latex/figures/pull_figurev3.png",
+    "keywords": ["memory retrieval", "visuomotor policies", "robot learning", "imitation learning", "vision-language models"],
     "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
+    "license": "https://creativecommons.org/licenses/by/4.0/"
   }
   </script>
 
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+  <style>
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .hero,
+    .section {
+      animation: none;
+    }
+
+    .publication-header .hero-body {
+      padding-bottom: 2.75rem;
+    }
+
+    .publication-kicker {
+      color: var(--text-secondary);
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-bottom: 1rem;
+    }
+
+    .project-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .project-nav a {
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.55rem 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+      background: var(--background-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .project-nav a:hover,
+    .project-nav a:focus {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .author-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 0.75rem;
+    }
+
+    .author-list .author-block {
+      margin-right: 0;
+    }
+
+    .project-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .project-section .title.is-3 {
+      text-align: center;
+    }
+
+    .project-copy {
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .project-copy p {
+      margin-bottom: 1.25rem;
+    }
+
+    .paper-figure {
+      margin: 2rem auto;
+      max-width: 1060px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .paper-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .paper-figure figcaption {
+      max-width: 900px;
+      margin: 0.85rem auto 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .highlight-grid,
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 1060px;
+      margin: 2rem auto 0;
+    }
+
+    .highlight,
+    .video-placeholder {
+      background: var(--background-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .highlight h3,
+    .video-placeholder h3 {
+      color: var(--text-primary);
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight p,
+    .video-placeholder p {
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .method-list {
+      max-width: 900px;
+      margin: 2rem auto 0;
+    }
+
+    .method-step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.1rem 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .method-step:last-child {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .method-step-number {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      background: var(--text-primary);
+      border-radius: 50%;
+      font-weight: 800;
+    }
+
+    .method-step h3 {
+      color: var(--text-primary);
+      font-size: 1.08rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+    }
+
+    .method-step p {
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .results-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+      max-width: 1060px;
+      margin: 2rem auto 0;
+      min-width: 0;
+    }
+
+    .results-table-wrap {
+      overflow-x: auto;
+      background: var(--background-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: var(--shadow-sm);
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .results-table-wrap h3 {
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .results-table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      color: var(--text-primary);
+      font-size: 0.94rem;
+    }
+
+    .results-table th,
+    .results-table td {
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.7rem 0.65rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .results-table th:first-child,
+    .results-table td:first-child {
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .results-table thead th {
+      background: var(--background-accent);
+      font-weight: 800;
+    }
+
+    .results-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .results-table .halo-row td {
+      font-weight: 800;
+      color: var(--primary-hover);
+      background: #eff6ff;
+    }
+
+    .result-takeaways {
+      max-width: 900px;
+      margin: 1.5rem auto 0;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .result-takeaways li {
+      margin-bottom: 0.65rem;
+    }
+
+    .video-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .video-placeholder {
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(248, 250, 252, 0.95), rgba(255, 255, 255, 0.95)),
+        var(--background-primary);
+    }
+
+    .video-placeholder .video-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      color: var(--primary-color);
+      background: #eff6ff;
+      border-radius: 50%;
+    }
+
+    @media screen and (max-width: 768px) {
+      .project-section {
+        padding: 3rem 1rem;
+      }
+
+      .project-nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      .project-nav a {
+        text-align: center;
+        min-width: 0;
+      }
+
+      .highlight-grid,
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .method-step {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .publication-title {
+        font-size: 1.65rem !important;
+        line-height: 1.15 !important;
+        overflow-wrap: anywhere;
+      }
+
+      .publication-authors {
+        font-size: 0.95rem !important;
+      }
+
+      .author-block {
+        margin-right: 0.35rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
-
-  <!-- Scroll to Top Button -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-
   <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">HALO: Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Rutav Shah</a></span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yisu Li</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Femi Bello</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yuke Zhu</a></span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Roberto Martín-Martín</a></span>
-                  </div>
+    <section class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <p class="publication-kicker">HALO</p>
+              <h1 class="title is-1 publication-title">Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control</h1>
+              <div class="is-size-5 publication-authors author-list">
+                <span class="author-block">Rutav Shah</span>
+                <span class="author-block">Yisu Li<sup>*</sup></span>
+                <span class="author-block">Femi Bello<sup>*</sup></span>
+                <span class="author-block">Yuke Zhu</span>
+                <span class="author-block">Roberto Martín-Martín</span>
+              </div>
+              <div class="is-size-5 publication-authors venue-list">
+                <span class="author-block">The University of Texas at Austin</span><br>
+                <span class="author-block">2026 Robotics: Science and Systems (RSS)</span>
+                <span class="eql-cntrb"><small><br><sup>*</sup>Indicates equal contribution</small></span>
+              </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">The University of Texas at Austin<br>2026 Robotics: Science and Systems (RSS)</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+              <nav class="project-nav" aria-label="Project page sections">
+                <a href="#abstract">Abstract</a>
+                <a href="#overview">Overview</a>
+                <a href="#method-overview">Method Overview</a>
+                <a href="#results-summary">Results Summary</a>
+                <a href="#robot-rollout-videos">Robot Rollout Videos</a>
+              </nav>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+    <section class="section hero is-light project-section" id="abstract">
+      <div class="container is-max-desktop">
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <div class="project-copy">
           <p>
-              General-purpose robots operating in partially observable environments, such as homes, require memory to
-              support autonomy. They must recall diverse information from
-              the past, such as where objects were placed, which tasks a
-              human partner has completed, and when an appliance was
-              turned on, to accomplish a wide range of tasks. Achieving this
-              versatility requires a memory retrieval mechanism that generalizes well across tasks. However, hand-designed or heuristicbased methods rely on task-specific assumptions that may not
-              transfer to different settings. Transformer architectures that use
-              attention over long contexts for memory retrieval provide a
-              promising alternative, as they learn retrieval from data without
-              task-specific assumptions. However, directly incorporating longcontext transformer architecture into imitation learning from
-              offline data introduces two key challenges: (1) the policy may
-              learn spurious correlations between the information from the
-              past and predicted actions, and (2) errors accumulate over
-              time in the memory due to prediction inaccuracies and their
-              compounding interactions with the environment, leading to model
-              drift and cascading failures in long-horizon control. To address
-              both challenges, we introduce HALO, a visuomotor policy with
-              an attention-based memory retrieval mechanism for long-horizon
-              control. To suppress spurious correlations, HALO leverages
-              vision-language model (VLM) priors to steer retrieval toward
-              task-relevant information. Concretely, it generates task-relevant,
-              memory-dependent question–answer pairs from demonstration
-              trajectories and trains the policy jointly with a video questionanswering objective, transferring VLM priors to the visuomotor
-              policy. Second, to reduce the impact of accumulated errors in
-              memory during closed-loop control, HALO uses sparse attention
-              that restricts retrieval to only the most relevant parts of the
-              history. Together, these components enable more reliable longhorizon control by guiding the policy to retrieve task-relevant
-              information from up to eight minutes of past experience.
+            General-purpose robots operating in partially observable environments, such as homes, require memory to support autonomy. They must recall diverse information from the past, such as where objects were placed, which tasks a human partner has completed, and when an appliance was turned on, to accomplish a wide range of tasks. Achieving this versatility requires a memory retrieval mechanism that generalizes well across tasks.
+          </p>
+          <p>
+            We introduce HALO, a visuomotor policy with an attention-based memory retrieval mechanism for long-horizon control. HALO leverages vision-language model priors to steer retrieval toward task-relevant information through automatically generated video question-answering supervision, and uses sparse attention to restrict retrieval to the most relevant parts of the history. Together, these components enable more reliable long-horizon control by guiding the policy to retrieve task-relevant information from up to eight minutes of past experience.
           </p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+    </section>
 
+    <section class="section project-section" id="overview">
+      <div class="container">
+        <h2 class="title is-3">Overview</h2>
+        <div class="project-copy">
+          <p>
+            Long-horizon household tasks often depend on information that is no longer visible when the robot needs to act. HALO learns to retrieve useful memories from earlier observations and actions, allowing a policy to reason over spatial information, object relations, counts, temporal events, and task progress without relying on hand-designed memory rules.
+          </p>
+        </div>
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+        <figure class="paper-figure">
+          <img src="latex/figures/pull_figurev3.png" alt="HALO overview showing memory retrieval for long-horizon robot control" loading="lazy">
+          <figcaption>
+            Long-horizon tasks require the policy to retrieve relevant information from past observations stored in memory. The relevant information can change across task stages, motivating a general learned retrieval mechanism.
+          </figcaption>
+        </figure>
+
+        <div class="highlight-grid">
+          <article class="highlight">
+            <h3>Diverse Memory</h3>
+            <p>Tasks require spatial, relational, numerical, temporal, and progress-related information from earlier in the episode.</p>
+          </article>
+          <article class="highlight">
+            <h3>Learned Retrieval</h3>
+            <p>The policy uses attention over encoded history instead of a task-specific memory representation or manually selected features.</p>
+          </article>
+          <article class="highlight">
+            <h3>Long-Horizon Control</h3>
+            <p>HALO retrieves from histories spanning up to eight minutes while reducing the drift that comes from noisy closed-loop execution.</p>
+          </article>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
+    </section>
+
+    <section class="section hero is-light project-section" id="method-overview">
+      <div class="container">
+        <h2 class="title is-3">Method Overview</h2>
+
+        <figure class="paper-figure">
+          <img src="latex/figures/method_overview_new.png" alt="HALO method overview with VQA supervision, visuomotor policy, and sparse attention" loading="lazy">
+          <figcaption>
+            HALO trains a single visuomotor policy that retrieves from past observations and actions, distills task-relevant priors from VLM-generated VQA supervision, and uses top-k sparse attention to reduce model drift.
+          </figcaption>
+        </figure>
+
+        <div class="method-list">
+          <div class="method-step">
+            <span class="method-step-number">1</span>
+            <div>
+              <h3>Encode Interaction History</h3>
+              <p>Observation and action encoders map RGB images, proprioception, and past actions into a shared memory space used by the policy backbone.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <span class="method-step-number">2</span>
+            <div>
+              <h3>Distill VLM Retrieval Priors</h3>
+              <p>Generated video question-answer pairs supervise the model to attend to past events that are relevant for the current task instead of spurious correlations in the demonstrations.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <span class="method-step-number">3</span>
+            <div>
+              <h3>Retrieve with Top-k Sparse Attention</h3>
+              <p>At each step, the policy selects only the most relevant memory entries, limiting the impact of accumulated prediction errors during closed-loop execution.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+    </section>
 
+    <section class="section project-section" id="results-summary">
+      <div class="container">
+        <h2 class="title is-3">Results Summary</h2>
+        <div class="project-copy">
+          <p>
+            HALO is evaluated on long-horizon manipulation tasks that require retrieving spatial, relational, numerical, and event-time information from history, including real-world tasks on stationary and mobile manipulation platforms.
+          </p>
+        </div>
 
+        <div class="results-layout">
+          <div class="results-table-wrap">
+            <h3>Simulation Benchmark: 50 Rollouts per Task</h3>
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Retrieve Object</th>
+                  <th>Return to Container</th>
+                  <th>Store N Objects</th>
+                  <th>Heat Stove</th>
+                  <th>Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Standard Transformer</td>
+                  <td>0.26</td>
+                  <td>0.23</td>
+                  <td>0.12</td>
+                  <td>0.27</td>
+                  <td>0.22</td>
+                </tr>
+                <tr>
+                  <td>Scene Memory Transformer</td>
+                  <td>0.53</td>
+                  <td>0.25</td>
+                  <td>0.17</td>
+                  <td>0.40</td>
+                  <td>0.34</td>
+                </tr>
+                <tr>
+                  <td>SAM2Act++</td>
+                  <td>0.39</td>
+                  <td>0.11</td>
+                  <td>0.27</td>
+                  <td>0.04</td>
+                  <td>0.20</td>
+                </tr>
+                <tr>
+                  <td>ReMemBer</td>
+                  <td>0.36</td>
+                  <td>0.13</td>
+                  <td>0.21</td>
+                  <td>0.00</td>
+                  <td>0.18</td>
+                </tr>
+                <tr>
+                  <td>Hand-Designed Features</td>
+                  <td>0.68</td>
+                  <td>0.15</td>
+                  <td>0.21</td>
+                  <td>0.13</td>
+                  <td>0.29</td>
+                </tr>
+                <tr>
+                  <td>Token Merging</td>
+                  <td>0.29</td>
+                  <td>0.24</td>
+                  <td>0.25</td>
+                  <td>0.38</td>
+                  <td>0.29</td>
+                </tr>
+                <tr>
+                  <td>HALO w/o VQA</td>
+                  <td>0.42</td>
+                  <td>0.29</td>
+                  <td>0.17</td>
+                  <td>0.37</td>
+                  <td>0.31</td>
+                </tr>
+                <tr class="halo-row">
+                  <td>HALO</td>
+                  <td>0.64</td>
+                  <td>0.32</td>
+                  <td>0.26</td>
+                  <td>0.40</td>
+                  <td>0.41</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
+          <div class="results-table-wrap">
+            <h3>Real-World Tasks: 20 Rollouts per Task</h3>
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Retrieve Object</th>
+                  <th>Return to Container</th>
+                  <th>Store N Objects</th>
+                  <th>Heat Stove</th>
+                  <th>Human-Robot Store N</th>
+                  <th>Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Standard Transformer</td>
+                  <td>0.40</td>
+                  <td>0.30</td>
+                  <td>0.20</td>
+                  <td>0.40</td>
+                  <td>0.50</td>
+                  <td>0.36</td>
+                </tr>
+                <tr class="halo-row">
+                  <td>HALO</td>
+                  <td>0.55</td>
+                  <td>0.40</td>
+                  <td>0.55</td>
+                  <td>0.60</td>
+                  <td>0.65</td>
+                  <td>0.55</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
+        <ul class="result-takeaways">
+          <li>HALO improves average simulation success from 0.22 to 0.41 over a standard Transformer baseline.</li>
+          <li>VQA-induced priors improve average success from 0.31 to 0.41, indicating that task-relevant retrieval supervision helps the policy use memory more reliably.</li>
+          <li>In real-world tasks, HALO improves average success from 0.36 to 0.55 over the standard Transformer baseline.</li>
+        </ul>
+
+        <figure class="paper-figure">
+          <img src="latex/figures/rw_task_figure_5.png" alt="Real-world HALO task rollouts across several manipulation tasks" loading="lazy">
+          <figcaption>
+            Real-world evaluation tasks cover stationary and mobile manipulation, including tasks that require recalling object locations, object relations, counts, event timing, and human partner progress.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section hero is-light project-section" id="robot-rollout-videos">
+      <div class="container">
+        <h2 class="title is-3">Robot Rollout Videos</h2>
+        <div class="project-copy">
+          <p>
+            Robot rollout videos will be added here once the final videos are available.
+          </p>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-placeholder">
+            <span class="video-icon"><i class="fas fa-video"></i></span>
+            <h3>Retrieve Object</h3>
+            <p>Spatial memory rollout slot.</p>
+          </article>
+          <article class="video-placeholder">
+            <span class="video-icon"><i class="fas fa-video"></i></span>
+            <h3>Return to Same Container</h3>
+            <p>Object-relation memory rollout slot.</p>
+          </article>
+          <article class="video-placeholder">
+            <span class="video-icon"><i class="fas fa-video"></i></span>
+            <h3>Store N Objects</h3>
+            <p>Numerical memory rollout slot.</p>
+          </article>
+          <article class="video-placeholder">
+            <span class="video-icon"><i class="fas fa-video"></i></span>
+            <h3>Heat Stove</h3>
+            <p>Event-time memory rollout slot.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
     <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+              This website is licensed under a <a rel="license noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End youtube video -->
+  </footer>
+  <script>
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
 
+    window.addEventListener('scroll', function() {
+      const scrollButton = document.querySelector('.scroll-to-top');
+      if (!scrollButton) return;
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+      if (window.pageYOffset > 300) {
+        scrollButton.classList.add('visible');
+      } else {
+        scrollButton.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+</html>

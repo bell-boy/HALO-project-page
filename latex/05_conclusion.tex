@@ -1,0 +1,27 @@
+\section{Conclusion and Future Work}
+In this work, we study imitation learning in partially observable domains where retrieving information from past observations and actions is essential.
+We present \ourmethod{}, a method for training a visuomotor policy with a memory-retrieval mechanism for long-horizon imitation learning.
+To address spurious correlations learned during training, \ourmethod{} co-trains action prediction with a video question-answering objective using VLM-generated pairs that provide priors on task-relevant information.
+To mitigate error accumulation from large memory, \ourmethod{} employs a top-k sparsification strategy that restricts retrieval to the most relevant parts of the history.
+Through comprehensive evaluation in simulation and real-world experiments across two robotic platforms, we demonstrate that our approach, which stores all information in memory and selectively retrieves relevant content, achieves significant improvements over alternative methods that reduce memory size through task-specific priors or learned compression.
+We also find that VLM-induced priors are useful for selecting task-relevant information from memory, but, by themselves, can be insufficient for low-level control. 
+In the future, we plan to investigate mechanisms to switch from fixed to active querying, adapting to each task.
+Moreover, we will explore broadening the scope of querying to cross-episodic information acquired by the robot in other runs.
+Additionally, because retrieval from large memory adds retrieval latency, especially as we expand the context to longer time periods, we will explore speculative retrieval techniques to hide it.
+
+% In this work, we studied the problem of imitation learning in partially observable domains, where retrieving information from a memory of previous observations and actions is necessary.
+% For this problem, we presented \ourmethod{}, a method that unifies visuomotor policy training and information retrieval learning for diverse types of information into a single framework.
+% \ourmethod{} uses an attention-based retrieval mechanism trained on VLM-generated VQA to retrieve task-relevant information from memory and ignore spurious correlations, combined with a top-k retrieval methodology that further alleviates error accumulation during execution due to an excessively large retrieval size.
+% With our comprehensive experimental evaluation in simulation and real-world tests using two robotic platforms, we achieved significant improvements over multiple retrieval and policy training policies on memory-intensive tasks that require different types of information from memory.
+% In future steps, we plan to investigate mechanisms to switch from fixed into active querying, adapting to each task. Moreover, we will explore broadening the scope of querying to cross-episodic information acquired by the agent in other runs.
+
+% In this work, we study imitation learning in partially observable domains where retrieving information from past observations and actions is essential.
+% We present \ourmethod{}, a unified framework that combines visuomotor policy training with information retrieval learning for diverse information types.
+% \ourmethod{} employs an attention-based retrieval mechanism trained on VLM-generated VQA pairs to provide priors on task-relevant information from memory, reducing spurious correlations, and pairs this with a top-k retrieval strategy that mitigates error accumulation from large memory.
+% Through comprehensive evaluation in simulation and real-world experiments across two robotic platforms, we demonstrate significant improvements over baseline retrieval and policy training methods on memory-intensive tasks requiring diverse information types.
+% In the future, we plan to investigate mechanisms to switch from fixed to active querying, adapting to each task. Moreover, we will explore broadening the scope of querying to cross-episodic information acquired by the robot in other runs.
+% Future Work:
+% \begin{itemize}
+%     \item Not active querying, but rather fixed. Can be suboptimal
+%     \item Broaden the scope of querying to cross-episodic information
+% \end{itemize}
