@@ -16,7 +16,7 @@
   <meta property="og:title" content="HALO: Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control">
   <meta property="og:description" content="HALO learns attention-based memory retrieval for reliable long-horizon robot control in partially observable household tasks.">
   <meta property="og:url" content="https://robin-lab.cs.utexas.edu/HALO/">
-  <meta property="og:image" content="https://robin-lab.cs.utexas.edu/HALO/latex/figures/pull_figurev3.png">
+  <meta property="og:image" content="https://robin-lab.cs.utexas.edu/HALO/static/images/halo-overview.png">
   <meta property="og:image:alt" content="HALO memory retrieval overview">
   <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
   <meta property="article:author" content="Rutav Shah">
@@ -27,7 +27,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="HALO: Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control">
   <meta name="twitter:description" content="A history-aware visuomotor policy for long-horizon robot control under partial observability.">
-  <meta name="twitter:image" content="https://robin-lab.cs.utexas.edu/HALO/latex/figures/pull_figurev3.png">
+  <meta name="twitter:image" content="https://robin-lab.cs.utexas.edu/HALO/static/images/halo-overview.png">
   <meta name="twitter:image:alt" content="HALO memory retrieval overview">
 
   <meta name="citation_title" content="Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control">
@@ -85,7 +85,7 @@
       "name": "Robotics: Science and Systems"
     },
     "url": "https://robin-lab.cs.utexas.edu/HALO/",
-    "image": "https://robin-lab.cs.utexas.edu/HALO/latex/figures/pull_figurev3.png",
+    "image": "https://robin-lab.cs.utexas.edu/HALO/static/images/halo-overview.png",
     "keywords": ["memory retrieval", "visuomotor policies", "robot learning", "imitation learning", "vision-language models"],
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/"
@@ -485,7 +485,7 @@
         </div>
 
         <figure class="paper-figure">
-          <img src="latex/figures/pull_figurev3.png" alt="HALO overview showing memory retrieval for long-horizon robot control" loading="lazy">
+          <img src="static/images/halo-overview.png" alt="HALO overview showing memory retrieval for long-horizon robot control" loading="lazy">
           <figcaption>
             Long-horizon tasks require the policy to retrieve relevant information from past observations stored in memory. The relevant information can change across task stages, motivating a general learned retrieval mechanism.
           </figcaption>
@@ -513,7 +513,7 @@
         <h2 class="title is-3">Method Overview</h2>
 
         <figure class="paper-figure">
-          <img src="latex/figures/method_overview_new.png" alt="HALO method overview with VQA supervision, visuomotor policy, and sparse attention" loading="lazy">
+          <img src="static/images/halo-method-overview.png" alt="HALO method overview with VQA supervision, visuomotor policy, and sparse attention" loading="lazy">
           <figcaption>
             HALO trains a single visuomotor policy that retrieves from past observations and actions, distills task-relevant priors from VLM-generated VQA supervision, and uses top-k sparse attention to reduce model drift.
           </figcaption>
@@ -682,7 +682,7 @@
         </ul>
 
         <figure class="paper-figure">
-          <img src="latex/figures/rw_task_figure_5.png" alt="Real-world HALO task rollouts across several manipulation tasks" loading="lazy">
+          <img src="static/images/halo-real-world-tasks.png" alt="Real-world HALO task rollouts across several manipulation tasks" loading="lazy">
           <figcaption>
             Real-world evaluation tasks cover stationary and mobile manipulation, including tasks that require recalling object locations, object relations, counts, event timing, and human partner progress.
           </figcaption>
